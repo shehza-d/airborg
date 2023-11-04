@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "airborg server",
   "version": "1.0.0",
   "description": "SMIT app",
   "main": "dist/index.mjs",
@@ -8,6 +8,7 @@
     "start": "node dist/server.mjs",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.mjs\"",
     "deploy": "gcloud app deploy",
+    "format": "npx prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {

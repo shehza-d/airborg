@@ -11,7 +11,7 @@ router.use(express.json());
 
 router.use(
   cors({
-    origin: ["http://localhost:3000", "https://localhost:3003", "*"],
+    origin: ["http://localhost:3000", "https://airborg.web.app", "*"],
     credentials: true,
   })
 );

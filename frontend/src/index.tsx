@@ -1,10 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./globals.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
-import ContextProvider from "./context/index";
 import { Toaster } from "react-hot-toast"; // https://react-hot-toast.com/docs
 
 const root = ReactDOM.createRoot(
@@ -12,16 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ContextProvider>
-        <App />
-        <Toaster /> {/* Toaster is being used for notifications */}
-      </ContextProvider>
-    </BrowserRouter>
+    <App />
+    <Toaster /> {/* Toaster is being used for notifications */}
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

@@ -1,11 +1,10 @@
-import Navbar from "./components/ui/NavBar";
-import AppRouter from "./routes/AppRouter";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <main className="">
-      <Navbar />
-      <AppRouter />
+      <Home />
+      {/* <Footer  /> */}
     </main>
   );
 }

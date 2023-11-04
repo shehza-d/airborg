@@ -19,7 +19,7 @@ const getLinksByClassId = async (req: Request, res: Response) => {
       .toArray();
 
     if (!data.length) {
-      res.status(404).send({ message: "Links Not Found" });
+      res.status(404).send({ message: "Links Not Found", data });
       return;
     }
 
@@ -30,7 +30,8 @@ const getLinksByClassId = async (req: Request, res: Response) => {
 };
 
 const addLink = async (req: Request, res: Response) => {
-  let { content, classId, ipAddress } = req.body as ILink;
+  const { content, ipAddress } = req.body as ILink;
+  const { classId } = req.params;
 
   // Validation
   if (!isValid(content, 500) || !isValid(classId, 10)) {
@@ -52,7 +53,8 @@ const addLink = async (req: Request, res: Response) => {
       res.status(201).send({
         message: "New Link added!",
         id: data.insertedId.toString(),
-        data,
+        acknowledged: data.acknowledged,
+        data: doc,
       });
   } catch (err: any) {
     res.status(500).send({ message: err.message || "Unknown Error" });
@@ -106,9 +108,9 @@ const deleteAllLinksByClassId = async (req: Request, res: Response) => {
     const result = await linksCol.deleteMany(query);
 
     if (!result.deletedCount)
-      throw new Error("No documents matched the query. Deleted 0 documents.");
+      throw new Error("No Links found with this Class ID.");
 
-    res.status(201).send({ message: "Successfully deleted documents." });
+    res.status(204).send({ message: "Successfully deleted documents." });
   } catch (err: any) {
     res.status(500).send({ message: err.message || "Unknown Error" });
   }
