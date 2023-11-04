@@ -1,5 +1,3 @@
-import { crudRouter } from "./appointment.mjs";
-import { authRouter } from "./auth.mjs";
-import { userProfileRouter } from "./user.mjs";
+import { linksRouter } from "./links.mjs";
 
-export { userProfileRouter, crudRouter, authRouter };
+export { linksRouter };

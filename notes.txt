@@ -2,3 +2,5 @@ add ci/cd of firebase
 dev branch
 
 ipadress | responsive 3
+
+deleteLinkById front and back

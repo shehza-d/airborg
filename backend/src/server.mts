@@ -1,25 +1,15 @@
 import express from "express";
 import { PORT } from "./config/index.js";
 import { middlewareRouter } from "./middleware/index.mjs";
-import { userProfileRouter, crudRouter, authRouter } from "./routes/index.js";
-import { tokenVerification } from "./middleware/tokenVerification.js";
+import { linksRouter } from "./routes/index.js";
 
 const app = express();
 const version = "/api/v1";
 
 app.use(version, middlewareRouter);
+app.use(version, linksRouter);
 
-// not secure routes
-app.use(version, authRouter); // this includes login signup
-
-// middleware token verification
-app.use(version, tokenVerification);
-
-// secure routes
-app.use(version, crudRouter);
-app.use(version, userProfileRouter);
-
-app.get("/testing", (req, res) => res.send("Devathon server testing"));
+app.get("/testing", (req, res) => res.send("Airborg server testing"));
 
 // app.get("/", express.static(path.join(__dirname, "./public/index.html")));
 app.use((req, res) => res.send("No route matched"));
