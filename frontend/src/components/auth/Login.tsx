@@ -51,7 +51,7 @@ export default function LoginForm() {
 
   return (
     <div className="mx-auto w-[90%] rounded bg-white p-6 shadow-md md:w-[50%]">
-      <h2 className="mb-4 text-center text-2xl font-bold">Login</h2>
+      <h2 className="mb-4 text-center text-2xl font-bold">sheh hi</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
