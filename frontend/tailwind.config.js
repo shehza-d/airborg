@@ -14,8 +14,7 @@ module.exports = {
         "2xl": "2560px",
       },
       colors: {
-        accent: "var(--accent-color)",
-        accentLow: "var(--accent-low-op)",
+        primary: "var(--primary-color)",
       },
     },
   },

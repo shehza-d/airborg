@@ -1,7 +1,12 @@
-# air-sysborg
+# Airborg
 
-An app with Next+Express+TailwindCSS
+## Airborg, A Text sharing platform which is successor to air.sysborg.com by Sir [Inzamam Malik](https://github.com/mInzamamMalik)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d726150c-8dbd-4637-8920-23cae09787d9/deploy-status)](https://app.netlify.com/sites/chat-app-by-shehzad/deploys)
+### Tech Stack Used
 
-https://chat-app-by-shehzad.
+- [x] **ReactJs**
+- [x] **ExpressJs**
+- [x] **MongoDB**
+- [x] **Tailwind CSS**
+- [x] **TypeScript**
+- [ ] **Zod Validation**
