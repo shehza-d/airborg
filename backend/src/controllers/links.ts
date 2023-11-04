@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb";
 import { ILink } from "../types/index.js";
 import type { Request, Response } from "express";
 import { isValid } from "../helpers/index.js";
+import { verifyHash } from "bcrypt-inzi";
 
 const collection = "links";
 const linksCol = db.collection<ILink>(collection);
@@ -97,9 +98,15 @@ const deleteLinkById = async (req: Request, res: Response) => {};
 
 const deleteAllLinksByClassId = async (req: Request, res: Response) => {
   const { classId } = req.params;
+  const { password } = req.body;
 
-  if (!isValid(classId, 10)) {
-    res.status(403).send({ message: "Incorrect Class id" });
+  const isCorrectPassword = await verifyHash(
+    password,
+    "$2b$10$.Gtr4t7cGLO6l/nVm/dOPe73ckvJ/OaMoej1Q.8kQXVkQCoJgQ7pq"
+  );
+
+  if (!isValid(classId, 10) || !isCorrectPassword) {
+    res.status(403).send({ message: "Incorrect Password or Class id" });
     return;
   }
 
@@ -110,7 +117,7 @@ const deleteAllLinksByClassId = async (req: Request, res: Response) => {
     if (!result.deletedCount)
       throw new Error("No Links found with this Class ID.");
 
-    res.status(204).send({ message: "Successfully deleted documents." });
+    res.status(200).send({ message: "Successfully deleted documents." });
   } catch (err: any) {
     res.status(500).send({ message: err.message || "Unknown Error" });
   }
