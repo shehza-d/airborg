@@ -1,36 +1,35 @@
 {
-  "name": "air-sysborg-server",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Realtime Socket.io Server for air-sysborg app",
-  "main": "index.mjs",
+  "description": "SMIT app",
+  "main": "dist/index.mjs",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.mjs",
-    "dev": "nodemon index.mjs"
+    "start": "node dist/server.mjs",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.mjs\"",
+    "deploy": "gcloud app deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shehza-d/air-sysborg.git"
+  "engines": {
+    "node": "18.x.x"
   },
-  "keywords": [
-    "none"
-  ],
-  "author": "Shehzad",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/shehza-d/air-sysborg/issues"
-  },
-  "homepage": "https://github.com/shehza-d/air-sysborg#readme",
   "dependencies": {
-    "bcrypt-inzi": "^1.0.7",
+    "axios": "^1.5.0",
+    "bcrypt-inzi": "^2.0.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.7.5"
+    "mongodb": "^5.8.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "^18.18.7",
+    "concurrently": "^8.2.1",
+    "nodemon": "^2.0.22"
   }
 }
