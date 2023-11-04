@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "airborg",
     "public": "./build",
     "ignore": [
       "firebase.json",
