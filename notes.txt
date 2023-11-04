@@ -1,8 +1,4 @@
-use redux toolkit instead of context api
-add unique usernames and and use them as slugs
+add ci/cd of firebase
+dev branch
 
-navbar in router
 
-remove 
-remove github action if not needed
-think of e-learning
